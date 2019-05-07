@@ -1,0 +1,29 @@
+/*
+ * File: ptr_str_reverse.c
+ * Purpose: print a file backward using pointers, file is one of Norvig's giant palindromes
+ * Author: aleena
+ */
+#define MAXLEN 1500
+#include <stdio.h>
+int main() {
+  // idea: iterate through file until end. Then go back one and continually print.
+  FILE * fptr = fopen("norvig_palindrome.txt", "rb");
+  char buffer[MAXLEN + 1];
+  if (!fptr) {
+    printf("Error. Could not open file!");
+    return -1;
+  }
+  //while(fgets(buffer, MAXLEN, fptr)) {
+  //}
+  // should test and see what happens with SEEK_END (perhaps no need to get to end of file
+  // myself
+  fseek(fptr, 0L, SEEK_END);
+  while(fseek(fptr, -1L, SEEK_CUR)!=0) {
+    printf("%c",  fgetc(fptr));
+    fseek(fptr, 0L, SEEK_CUR); 
+  }
+  fclose(fptr);
+  return 0;
+}
+  
+  
