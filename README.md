@@ -1,4 +1,4 @@
 # c-practice
-practicing c programming
+C Programming Practice
 
 This is a place to keep C programming exercises.
