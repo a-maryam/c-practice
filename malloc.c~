@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  char * color;
+  color = (char *) malloc (23 * sizeof(char));
+  color = "Purple Violets";
+  printf("%s", color);
+  free(color);
+}
